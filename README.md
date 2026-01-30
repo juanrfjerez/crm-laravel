@@ -71,5 +71,5 @@ Cada módulo incluye:
 
 ## Autor
 
-- Juan Ramón
-- Proyecto académico – Primera Entrega CRM en Laravel
+- Juan Ramón Fernández Parra.
+- Proyecto académico – Primera Entrega CRM en Laravel.
