@@ -18,7 +18,8 @@ En esta fase se amplía la funcionalidad creada en la primera entrega, añadiend
 - Mejor visualización de datos
 
 ### Paginación con Laravel
-Los listados utilizan:
+
+#### Los listados utilizan:
 ->paginate(10)
 
 ### Subida de imágenes
@@ -39,7 +40,7 @@ Los listados utilizan:
 
 - Admin: Crear, Editar, Eliminar
 - Usuario: Crear, Editar
-Control en vistas:
+#### Control en vistas:
 - El botón Eliminar solo aparece para Admin
 - Usuarios normales no pueden borrar registros
 
