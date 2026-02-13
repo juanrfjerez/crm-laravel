@@ -20,12 +20,36 @@
         </div>
     </div>
 </nav>
+
 <div class="container mt-4">
     <h1>Editar Producto</h1>
 
-    <form action="{{ route('productos.update', $producto->id) }}" method="POST">
+    <form action="{{ route('productos.update', $producto->id) }}" method="POST" enctype="multipart/form-data">
         @csrf
         @method('PUT')
+
+        <div class="mb-3">
+            <label class="form-label">Imagen actual</label><br>
+            @if($producto->imagen)
+                <img src="{{ asset('storage/' . $producto->imagen) }}"
+                     alt="Imagen del producto"
+                     width="120"
+                     height="120"
+                     style="object-fit: cover; border-radius: 6px;">
+            @else
+                <p class="text-muted">Este producto no tiene imagen</p>
+            @endif
+        </div>
+
+        <div class="mb-3">
+            <label class="form-label">Cambiar imagen (opcional)</label>
+            <input type="file" name="imagen" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Archivo PDF (opcional)</label>
+            <input type="file" name="pdf" class="form-control">
+        </div>
 
         <div class="mb-3">
             <label>Nombre</label>

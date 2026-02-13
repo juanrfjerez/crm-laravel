@@ -24,10 +24,25 @@ class ProductoController extends Controller
             'nombre' => 'required',
             'precio' => 'required|numeric',
             'stock' => 'required|integer',
-            'categoria' => 'nullable'
+            'categoria' => 'nullable',
+            'imagen' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'pdf' => 'nullable|mimes:pdf|max:4096'
         ]);
 
-        Producto::create($request->all());
+        $datos = $request->except(['imagen', 'pdf']);
+
+        if ($request->hasFile('imagen')) {
+            $ruta = $request->file('imagen')->store('productos', 'public');
+            $datos['imagen'] = $ruta;
+        }
+
+        if ($request->hasFile('pdf')) {
+            $rutaPdf = $request->file('pdf')->store('pdfs', 'public');
+            $datos['pdf'] = $rutaPdf;
+        }
+
+        Producto::create($datos);
+
         return redirect()->route('productos.index');
     }
 
@@ -43,11 +58,33 @@ class ProductoController extends Controller
             'nombre' => 'required',
             'precio' => 'required|numeric',
             'stock' => 'required|integer',
-            'categoria' => 'nullable'
+            'categoria' => 'nullable',
+            'imagen' => 'nullable|image|mimes:jpg,jpeg,png|max:2048',
+            'pdf' => 'nullable|mimes:pdf|max:4096'
         ]);
 
         $producto = Producto::findOrFail($id);
-        $producto->update($request->all());
+
+        $datos = $request->except(['imagen', 'pdf']);
+
+        if ($request->hasFile('imagen')) {
+            if ($producto->imagen && \Storage::disk('public')->exists($producto->imagen)) {
+                \Storage::disk('public')->delete($producto->imagen);
+            }
+            $ruta = $request->file('imagen')->store('productos', 'public');
+            $datos['imagen'] = $ruta;
+        }
+
+        if ($request->hasFile('pdf')) {
+            if ($producto->pdf && \Storage::disk('public')->exists($producto->pdf)) {
+                \Storage::disk('public')->delete($producto->pdf);
+            }
+            $rutaPdf = $request->file('pdf')->store('pdfs', 'public');
+            $datos['pdf'] = $rutaPdf;
+        }
+
+        $producto->update($datos);
+
         return redirect()->route('productos.index');
     }
 

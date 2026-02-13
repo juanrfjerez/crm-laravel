@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <title>Proveedores</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.13.6/css/jquery.dataTables.min.css">
 </head>
 <body>
 <nav class="navbar navbar-expand-lg navbar-dark bg-dark mb-4">
@@ -20,11 +21,12 @@
         </div>
     </div>
 </nav>
+
 <div class="container mt-4">
     <h1>Listado de Proveedores</h1>
     <a href="{{ route('proveedores.create') }}" class="btn btn-primary mb-3">Nuevo Proveedor</a>
 
-    <table class="table table-bordered">
+    <table id="tabla-proveedores" class="table table-bordered">
         <thead>
             <tr>
                 <th>Nombre</th>
@@ -54,5 +56,16 @@
         </tbody>
     </table>
 </div>
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://code.jquery.com/jquery-3.7.0.min.js"></script>
+<script src="https://cdn.datatables.net/1.13.6/js/jquery.dataTables.min.js"></script>
+
+<script>
+    $(document).ready(function() {
+        $('#tabla-proveedores').DataTable();
+    });
+</script>
+
 </body>
 </html>

@@ -23,7 +23,7 @@
 <div class="container mt-4">
     <h1>Nuevo Producto</h1>
 
-    <form action="{{ route('productos.store') }}" method="POST">
+    <form action="{{ route('productos.store') }}" method="POST" enctype="multipart/form-data">
         @csrf
 
         <div class="mb-3">
@@ -44,6 +44,16 @@
         <div class="mb-3">
             <label>Categoría</label>
             <input type="text" name="categoria" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Imagen del producto</label>
+            <input type="file" name="imagen" class="form-control">
+        </div>
+
+        <div class="mb-3">
+            <label>Archivo PDF</label>
+            <input type="file" name="pdf" class="form-control">
         </div>
 
         <button type="submit" class="btn btn-success">Guardar</button>
