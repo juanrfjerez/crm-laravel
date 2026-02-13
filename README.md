@@ -87,8 +87,8 @@ php artisan serve
 
 ## Usuario y contraseña de prueba
 
-Admin: Admin@gmail.com -- Admin1234
-Usuario: Usuario@gmail.com -- Usuario1234
+- Admin: Admin@gmail.com -- Admin1234
+- Usuario: Usuario@gmail.com -- Usuario1234
 
 ## Autor
 
