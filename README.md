@@ -1,75 +1,96 @@
-# CRM en Laravel – Primera Entrega
+## CRM en Laravel – Segunda Entrega
 
-Este proyecto es un **CRM básico desarrollado en Laravel**, creado como parte de la primera entrega del módulo de Desarrollo Web.  
-Incluye **5 módulos CRUD completos**, navegación funcional y conexión a base de datos.
+### Descripción del proyecto
+En esta fase se amplía la funcionalidad creada en la primera entrega, añadiendo:
+- DataTables en los listados
+- Paginación con Laravel
+- Subida de imágenes
+- Subida y gestión de archivos PDF
+- Sistema de roles (Admin y Usuario)
+- Control de permisos en vistas
+- CRUD completos de Clientes, Productos, Proveedores, Ventas y Compras
 
-## Módulos incluidos
+## Funcionalidades añadidas en la Segunda Entrega
 
-### Clientes (obligatorio)
-- Listar
-- Crear
-- Editar
-- Eliminar
+### DataTables
+- Búsqueda instantánea
+- Ordenación
+- Mejor visualización de datos
 
-### CRUD adicionales
-- Productos
-- Proveedores
-- Ventas
-- Compras
+### Paginación con Laravel
+Los listados utilizan:
+->paginate(10)
 
-Cada módulo incluye:
-- Modelo
-- Migración
-- Controlador
-- Rutas
-- Vistas Blade (index, create, edit)
+### Subida de imágenes
 
-## Requisitos para ejecutarlo
+- Guardadas en storage/app/public/productos
+- Validación de tamaño y formato
+- Vista previa en el listado
 
-- PHP 8 o superior  
-- Composer  
-- Laravel  
-- Servidor local (XAMPP, Laragon, etc.)  
-- MySQL  
-- Git  
+### Subida y gestión de PDF
+
+- Guardados en storage/app/public/pdfs
+- Validación de tipo y tamaño
+- Enlace “Ver PDF” en el listado
+- Reemplazo del archivo al editar
+- Eliminación del PDF anterior
+
+### Roles y permisos
+
+- Admin: Crear, Editar, Eliminar
+- Usuario: Crear, Editar
+Control en vistas:
+- El botón Eliminar solo aparece para Admin
+- Usuarios normales no pueden borrar registros
 
 ## Pasos básicos de instalación
 
 1. Clonar el repositorio:
 
-   git clone https://github.com/juanrfjerez/crm-laravel.git
+git clone https://github.com/juanrfjerez/crm-laravel.git
 
 2. Entrar en la carpeta del proyecto:
 
-    cd crm-laravel
+cd crm-laravel
 
 3. Instalar dependencias:
 
-    composer install
+composer install
 
 4. Copiar el archivo de entorno:
 
-    cp .env.example .env
+cp .env.example .env
 
 5. Generar la clave de la aplicación:
 
-    php artisan key:generate
+php artisan key:generate
 
 6. Configurar la base de datos en el archivo .env
 
 7. Ejecutar las migraciones:
 
-    php artisan migrate
+php artisan migrate
 
 8. Iniciar el servidor de desarrollo:
 
-    php artisan serve
+php artisan serve
+
+## Estructura de archivos subidos
+
+### Imágenes
+
+- storage/app/public/productos
+
+### PDFs
+
+- storage/app/public/pdfs
 
 ## Usuario y contraseña de prueba
 
-- Este proyecto no requiere autenticación, por lo que no es necesario usuario ni contraseña para acceder al CRM.
+Admin: Admin@gmail.com -- Admin1234
+Usuario: Usuario@gmail.com -- Usuario1234
 
 ## Autor
 
 - Juan Ramón Fernández Parra.
-- Proyecto académico – Primera Entrega CRM en Laravel.
+- Proyecto académico – Segunda Entrega CRM en Laravel.
