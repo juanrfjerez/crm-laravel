@@ -4,8 +4,8 @@
 En esta fase se amplía la funcionalidad creada en la primera entrega, añadiendo:
 - DataTables en los listados
 - Paginación con Laravel
-- Subida de imágenes
-- Subida y gestión de archivos PDF
+- Subida de imágenes (Productos)
+- Subida y gestión de archivos PDF (Productos)
 - Sistema de roles (Admin y Usuario)
 - Control de permisos en vistas
 - CRUD completos de Clientes, Productos, Proveedores, Ventas y Compras
